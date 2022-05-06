@@ -10,6 +10,8 @@ export class CardComponent implements OnInit {
 
   @Output() showDetail = new EventEmitter<boolean>()
   @Output() onDelete = new EventEmitter<User>()
+  @Output() updated = new EventEmitter<User>()
+
 
   @Input() user!: User
 

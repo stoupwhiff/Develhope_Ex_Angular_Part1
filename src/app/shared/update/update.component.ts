@@ -1,24 +1,25 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from 'src/app/models/user';
 
 @Component({
-  selector: 'x-new-user',
-  templateUrl: './new-user.component.html',
-  styleUrls: ['./new-user.component.css']
+  selector: 'x-update',
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.css']
 })
-export class NewUserComponent implements OnInit {
+export class UpdateComponent implements OnInit {
 
   @Output() hideModal = new EventEmitter<void>()
-  @Output() submitted = new EventEmitter<User>()
+  @Output() updated = new EventEmitter<User>()
 
+  @Input() user!: User
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  addUser(form: NgForm) {
-    this.submitted.emit(
+  updateUser(form: NgForm) {
+    this.updated.emit(
       {
       id: String(Math.random()),
       name: form.value.name,
@@ -29,5 +30,4 @@ export class NewUserComponent implements OnInit {
       orders: []
     })
   }
-
 }

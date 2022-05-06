@@ -10,8 +10,10 @@ export class ListViewComponent implements OnInit {
 
   @Output() showDetail = new EventEmitter<boolean>()
   @Output() onDelete = new EventEmitter<User>()
+  @Output() updated = new EventEmitter<User>()
 
   @Input() users!: User[]
+  @Input() user!: User
 
   constructor() { }
 

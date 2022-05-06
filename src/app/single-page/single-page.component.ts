@@ -10,9 +10,11 @@ import { User } from '../models/user';
 export class SinglePageComponent implements OnInit {
 
   users = USERS
-  selected: string = 'list-view'
+  selected: string = 'card-view'
   modal: boolean = false
   detail: boolean = false
+  update: boolean = false
+  selectedUser!: User
 
   constructor() { }
 
@@ -20,15 +22,16 @@ export class SinglePageComponent implements OnInit {
   }
 
   add(user: User) {
-    this.users.push(
-    {
-        ...user
-    }
-    )
+    this.users.push(user)
   }
 
   remove(user: User) {
     this.users = this.users.filter(el => el.id != user.id)
+  }
+
+  updateUser(user: User) {  
+    let i = this.users.indexOf(this.selectedUser)
+    this.users[i] = JSON.parse(JSON.stringify(user)) 
   }
 
 }

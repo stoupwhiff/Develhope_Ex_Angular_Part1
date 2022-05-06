@@ -17,7 +17,7 @@
 <div class="container">
     <div class="row" *ngIf="selected == 'card-view'">
         <div class="col-3" *ngFor="let user of users">
-            <x-card (onDelete)="remove($event)" (showDetail)="detail = true" [user]="user"></x-card>
+            <x-card (updated)="update = true; selectedUser = user" (onDelete)="remove($event)" (showDetail)="detail = true" [user]="user"></x-card>
         </div>
     </div>
 </div>
@@ -31,7 +31,7 @@
         <div class="col-2 fw-bold">Orders</div>
     </div>
     <div class="mt-2 border-bottom border-2 mb-2">
-        <x-list-view (onDelete)="remove($event)" (showDetail)="detail = true" [users]="users"></x-list-view>
+        <x-list-view (updated)="update = true;" (onDelete)="remove($event)" (showDetail)="detail = true" [users]="users"></x-list-view>
     </div>
 </div>
 
@@ -39,3 +39,5 @@
 <ng-container *ngIf="detail" >
     <x-details  *ngFor="let user of users" [user]="user"  (showDetail)="detail = false" ></x-details>
 </ng-container>
+
+<x-update [user]="selectedUser" (updated)="updateUser($event)" (hideModal)="update = false" *ngIf="update"></x-update>

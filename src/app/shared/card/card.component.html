@@ -7,7 +7,7 @@
       <p class="card-text">{{user.orders?.length}}</p>
       <a *ngIf="user.orders" (click)="showDetail.emit()" class="card-text mb-2">View Order</a>
         <div class="d-flex justify-content-between">
-            <a href="#" class="btn btn-primary">Edit</a>
+            <a (click)="updated.emit(user)" href="#" class="btn btn-primary">Edit</a>
             <a (click)="onDelete.emit(user)" href="#" class="btn btn-danger">Delete</a>
         </div>
     </div>

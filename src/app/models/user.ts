@@ -23,5 +23,5 @@ export interface User {
     mail: string,
     imageUrl?: string,
     location: location,
-    orders: orders[]
+    orders?: orders[]
 }

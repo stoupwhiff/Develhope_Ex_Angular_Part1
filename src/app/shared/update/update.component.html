@@ -1,0 +1,20 @@
+<div class="overlay" (click)="hideModal.emit()"></div>
+<div class="modale d-flex flex-column">
+    <form (ngSubmit)="updateUser(form); hideModal.emit()" class="d-flex flex-column justify-content-start gap-1" #form="ngForm" action="" class="modale">
+        <h4>New User</h4>
+        <hr>
+        <div class="d-flex flex-column justify-content-start gap-1">
+        <label for="name">Name: </label>
+        <input [(ngModel)]="user.name" ngModel name="name" id="name" type="text">
+        <label for="mail">Mail: </label>
+        <input [(ngModel)]="user.mail" ngModel name="mail" id="mail" type="text">
+        <label for="address">Address: </label>
+        <input [(ngModel)]="user.location.address" ngModel name="address" id="address" type="text">
+        <hr>
+        <div class="d-flex mt-5 w-100 justify-content-between">
+            <button type="reset" class="btn btn-danger">Clear</button>
+            <button type="submit" class="btn btn-success">Modifica</button>
+        </div>
+    </div>
+    </form>
+</div>

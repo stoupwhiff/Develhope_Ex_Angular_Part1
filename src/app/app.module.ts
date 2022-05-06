@@ -8,6 +8,7 @@ import { ListViewComponent } from './shared/list-view/list-view.component';
 import { NewUserComponent } from './shared/new-user/new-user.component';
 import { FormsModule } from '@angular/forms';
 import { DetailsComponent } from './shared/details/details.component';
+import { UpdateComponent } from './shared/update/update.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DetailsComponent } from './shared/details/details.component';
     CardComponent,
     ListViewComponent,
     NewUserComponent,
-    DetailsComponent
+    DetailsComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
