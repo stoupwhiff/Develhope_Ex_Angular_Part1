@@ -7,7 +7,7 @@ import { CardComponent } from './shared/card/card.component';
 import { ListViewComponent } from './shared/list-view/list-view.component';
 import { NewUserComponent } from './shared/new-user/new-user.component';
 import { FormsModule } from '@angular/forms';
-import { DetailsComponent } from './details/details.component';
+import { DetailsComponent } from './shared/details/details.component';
 
 @NgModule({
   declarations: [
