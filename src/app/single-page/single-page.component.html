@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row p-4">
+        <div class="col-12">
+            <h1>Users</h1>
+        </div>
+    </div>
+
+    <div class="row p-4">
+        <div class="col-4 d-flex justify-content-between">
+            <a (click)="selected = 'card-view'" class="text-decoration-none text-black" href="#">Card view</a>
+            <a (click)="selected = 'list-view'" class="text-decoration-none text-black" href="#">List View</a>
+            <a (click)="modal = true" class="text-decoration-none text-black" href="#">+New User</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row" *ngIf="selected == 'card-view'">
+        <div class="col-3" *ngFor="let user of users">
+            <x-card (onDelete)="remove($event)" (showDetail)="detail = true" [user]="user"></x-card>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="selected == 'list-view'">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-2 fw-bold">Name</div>
+        <div class="col-2 fw-bold">Mail</div>
+        <div class="col-2 fw-bold">Address</div>
+        <div class="col-2 fw-bold">Orders</div>
+    </div>
+    <div class="mt-2 border-bottom border-2 mb-2">
+        <x-list-view (onDelete)="remove($event)" (showDetail)="detail = true" [users]="users"></x-list-view>
+    </div>
+</div>
+
+<x-new-user (submitted)="add($event)" (hideModal)="modal = false" *ngIf="modal"></x-new-user>
+<ng-container *ngIf="detail" >
+    <x-details  *ngFor="let user of users" [user]="user"  (showDetail)="detail = false" ></x-details>
+</ng-container>
