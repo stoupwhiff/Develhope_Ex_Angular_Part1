@@ -9,7 +9,7 @@
     <div class="col-2">{{user.location.address}}</div>
     <div class="col-1">{{user.orders.length}}</div>
     <div class="col-2">
-        <a (click)="showDetail.emit()" href="#">View Details</a>
+        <a *ngIf="user.orders" (click)="showDetail.emit()" href="#">View Details</a>
     </div>
     <div class="col-2">
         <a href="#" class="btn btn-primary me-2">Edit</a>
